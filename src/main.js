@@ -1,6 +1,13 @@
 import { createApp } from 'vue'
+import { StoryblokVue, apiPlugin } from '@storyblok/vue'
 import App from './App.vue'
 
-import './assets/main.css'
+const app = createApp(App)
 
-createApp(App).mount('#app')
+app.use(StoryblokVue, {
+  accessToken: 'INSERT TOKEN HERE',
+  bridge: process.env.NODE_ENV !== 'production', // optimizes by excluding the bridge on production
+  use: [apiPlugin],
+})
+
+app.mount('#app')
