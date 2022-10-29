@@ -1,6 +1,7 @@
 import { fileURLToPath, URL } from 'node:url';
 
 import { defineConfig } from 'vite';
+import fs from 'fs';
 import vue from '@vitejs/plugin-vue';
 
 // https://vitejs.dev/config/
@@ -22,7 +23,10 @@ export default defineConfig({
     },
   },
   server: {
-    // https: true,
+    https: {
+      key: fs.readFileSync('./localhost-key.pem'),
+      cert: fs.readFileSync('./localhost.pem'),
+    },
     port: 3000,
   },
 });

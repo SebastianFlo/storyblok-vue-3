@@ -1,15 +1,34 @@
 import { createApp } from 'vue';
 import { StoryblokVue, apiPlugin } from '@storyblok/vue';
-import VueRouter from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 
 import App from './App.vue';
+import DataViz from './pages/DataViz.vue';
+import Home from './pages/Home.vue';
 
 const app = createApp(App);
 
-app.use(VueRouter);
+const routes = [
+  {
+    path: '/',
+    component: Home,
+  },
+  {
+    path: '/projects/data-viz',
+    component: DataViz,
+  },
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  bridge: true,
+  routes,
+});
+
+app.use(router);
 
 app.use(StoryblokVue, {
-  accessToken: 'INSERT TOKEN HERE',
+  accessToken: 'TOKEN',
   bridge: process.env.NODE_ENV !== 'production', // optimizes by excluding the bridge on production
   use: [apiPlugin],
 });

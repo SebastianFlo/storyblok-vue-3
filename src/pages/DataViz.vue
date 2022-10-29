@@ -18,29 +18,19 @@
       />
     </div>
   </section>
-
-  <!-- <section>
-    <h1>Data Viz</h1>
-    <StoryblokComponent v-if="story && story.content" :blok="story.content" />
-  </section> -->
 </template>
 
 <script>
-import { useStoryblok } from '@storyblok/vue';
-const storyId = '103366387';
-import { inject, ref, watch, onMounted } from 'vue';
-// import { gsap } from 'gsap';
+import { useStoryblok, useStoryblokBridge } from '@storyblok/vue';
+const storyId = 'ID HERE';
+import { inject, ref, reactive, onMounted } from 'vue';
 import { renderRichText } from '@storyblok/vue';
-// import { Chart, registerables } from 'chart.js';
-// Chart.register(...registerables);
-
-// import '../../assets/styles.scss';
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 
 import Vizblock from '../components/Vizblock.vue';
 import Textblock from '../components/Textblock.vue';
 import Mediablock from '../components/Mediablock.vue';
-
-// import useStoryBridge from '../../composables/useStoryBridge';
 
 export default {
   components: {
@@ -50,11 +40,20 @@ export default {
   },
   setup(props) {
     let story = ref({});
+    // const state = reactive({ story: {} });
 
     onMounted(async () => {
-      const story = await useStoryblok(storyId, { version: 'draft' });
-      console.log(story.value);
-      story.value = story.value.content;
+      const storyResponse = await useStoryblok(storyId, { version: 'draft' });
+      story.value = storyResponse.value.content;
+
+      const sbBridge = new window.StoryblokBridge();
+
+      sbBridge.on(
+        ['input', 'published', 'change'],
+        ({ story: latestStory }) => {
+          story.value = latestStory.content;
+        }
+      );
     });
 
     //     const storyblokToken = inject('storyblokToken');
@@ -73,7 +72,7 @@ export default {
     //       story.value = storiesJson.stories[0].content;
     //     });
 
-    //     watch(
+    // watch(
     //       storyId,
     //       () => {
     //         if (!storyId.value || bridgeLive.value) {
@@ -88,7 +87,7 @@ export default {
     //       {
     //         immediate: true,
     //       }
-    //     );
+    // );
 
     return {
       story,
@@ -113,10 +112,7 @@ export default {
   &-grid {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(
-      var(--rd-column-nb, 3),
-      minmax(calc(50% - 1em), 1fr)
-    );
+    grid-template-columns: repeat(var(--rd-column-nb, 3), 1fr);
     grid-auto-rows: auto;
     grid-row-gap: 1em;
     grid-column-gap: 1em;
