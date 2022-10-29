@@ -1,0 +1,43 @@
+:root {
+  --c-red: #D94848;
+  --c-light-red: #fb986a;
+  --c-light-red--opacity: rgba(251, 152, 106, 0.4);
+  --c-dark-red: #401d21;
+  --c-blue: #04BFBF;
+  --c-yellow: #F2B749;
+  --c-yellow-light: rgb(255, 234, 0);
+  --c-shadow: #453b60;
+  --c-dark: #26141B;
+  --c-light: #efefef;
+
+  // generates a list of spacer variables
+  --spacer-base: 5px;
+  --spacer-xxlg: calc(var(--spacer-xlg) * 2);
+  --spacer-xlg: calc(var(--spacer-lg) * 2);
+  --spacer-lg: calc(var(--spacer-base) * 1.5);
+  --spacer-md: calc(var(--spacer-base) * 1.25);
+  --spacer-sm: calc(var(--spacer-base) * 1);
+  --spacer-xs: calc(var(--spacer-base) * 0.75);
+  --spacer-xxs: calc(var(--spacer-base) * 0.5);
+  --spacer-xxxs: calc(var(--spacer-base) * 0.25);
+
+  --primary-font-family: 'Montserrat', serif;
+
+  // Generates font sizes
+  --font-size-base: 1rem;
+  --font-size-2xlg: calc(var(--font-size-base) * 3);
+  --font-size-xlg: calc(var(--font-size-base) * 1.5);
+  --font-size-lg: calc(var(--font-size-base) * 1.25);
+  --font-size-md: calc(var(--font-size-base) * 1);
+  --font-size-sm: calc(var(--font-size-base) * 0.75);
+  --font-size-xs: calc(var(--font-size-base) * 0.5);
+
+
+  --z-index-base: 1;
+  --z-index-nav: 2;
+  --z-index-overlay: 3;
+  --z-index-overlay-1: 4;
+
+  --app-gutter: 1rem;
+
+}

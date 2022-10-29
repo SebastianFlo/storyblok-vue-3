@@ -1,7 +1,7 @@
 <template>
   <Suspense>
     <template #default>
-      <Home />
+      <DataViz />
     </template>
 
     <template #fallback>
@@ -11,7 +11,8 @@
 </template>
 
 <script setup>
-import Home from './pages/Home.vue'
+import Home from './pages/Home.vue';
+import DataViz from './pages/DataViz.vue';
 </script>
 
 <style scoped>
