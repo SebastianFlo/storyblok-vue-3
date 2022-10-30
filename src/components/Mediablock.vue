@@ -9,39 +9,41 @@
   </section>
 </template>
 
-
 <script>
-  import { watch, ref, toRefs, onMounted, computed } from 'vue';
+import { watch, ref, toRefs, onMounted, computed } from 'vue';
 
-
-  export default {
-    props: {
-      blok: {
-        type: Object,
-        default: () => ({}),
-      },
+export default {
+  props: {
+    blok: {
+      type: Object,
+      default: () => ({}),
     },
-    setup(props) {
-      const { blok } = toRefs(props);
+  },
+  setup(props) {
+    const { blok } = toRefs(props);
 
-      const isImage = (filename) => {
-        return filename.endsWith('.jpg') || filename.endsWith('.png') || filename.endsWith('.gif') || filename.endsWith('.svg');
-      };
+    const isImage = (filename) => {
+      return (
+        filename.endsWith('.jpg') ||
+        filename.endsWith('.png') ||
+        filename.endsWith('.gif') ||
+        filename.endsWith('.svg')
+      );
+    };
 
-      const isVideo = () => {};
+    const isVideo = () => {};
 
-      return {
-        blok,
-        isImage,
-        isVideo,
-      };
-    }
-  }
+    return {
+      blok,
+      isImage,
+      isVideo,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
 .rb-mediablock {
-  // border : 1px solid var(--c-dark);
   min-height: 200px;
 
   img {

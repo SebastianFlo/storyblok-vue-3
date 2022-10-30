@@ -86,7 +86,10 @@ export default {
 
     watch(blok, async (newBlock, oldBlock) => {
       // Check for data change
-      if (newBlock.api === oldBlock.api) {
+      if (
+        newBlock.api === oldBlock.api &&
+        newBlock.customApi === oldBlock.customApi
+      ) {
         return;
       }
 
@@ -99,7 +102,7 @@ export default {
       //   method: 'GET',
       // });
 
-      const data = await fetch(newBlock.api, {
+      const data = await fetch(newBlock.customApi || newBlock.api, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',
@@ -127,9 +130,6 @@ export default {
 
 <style lang="scss">
 .rb-vizblock {
-  border: 1px solid var(--c-dark);
   min-height: 250px;
-  background-color: var(--theme-color, var(--c-light));
-  color: var(--theme-background, var(--c-dark));
 }
 </style>

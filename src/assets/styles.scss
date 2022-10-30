@@ -1,8 +1,9 @@
 html,
 body {
-  --theme-background: none;
-  --theme-color: none;
+  --theme-background: var(--c-light);
+  --theme-color: var(--c-dark);
   --theme-color-invert: var(--c-light);
+  --border-color: var(--c-dark);
 
   margin: 0;
   padding: 0;
@@ -75,10 +76,47 @@ button {
     color: var(--theme-color);
   }
 
+  // &--dark-red_light-red {
+  //   --theme-background: var(--c-dark-red);
+  //   --theme-color: var(--c-light-red);
+  //   background-color: var(--theme-background);
+  //   color: var(--theme-color);
+  // }
+
   &--dark-red_light-red {
-    --theme-background: var(--c-dark-red);
-    --theme-color: var(--c-light-red);
+    --theme-background: var(--c-black);
+    --theme-color: var(--c-light);
+    --border-color: var(--c-light);
+
     background-color: var(--theme-background);
     color: var(--theme-color);
+
+    .rb-data-viz--title {
+      h1 {
+        background: var(--geist-text-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 88px;
+        font-weight: 700;
+        letter-spacing: -3px;
+        margin: 32px 0 8px;
+      }
+
+      p {
+        --color: var(--accents-5);
+      }
+    }
+
+    .rb-data-viz--block {
+      border-radius: 8px;
+      border: var(--inset-border);
+      opacity: var(--glow-opacity);
+      background-image: var(--glow-bg);
+
+      h3 {
+        color: var(--accents-7);
+      }
+    }
   }
 }

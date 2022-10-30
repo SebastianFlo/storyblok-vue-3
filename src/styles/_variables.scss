@@ -1,13 +1,14 @@
 :root {
-  --c-red: #D94848;
+  --c-red: #d94848;
   --c-light-red: #fb986a;
   --c-light-red--opacity: rgba(251, 152, 106, 0.4);
   --c-dark-red: #401d21;
-  --c-blue: #04BFBF;
-  --c-yellow: #F2B749;
+  --c-blue: #04bfbf;
+  --c-yellow: #f2b749;
   --c-yellow-light: rgb(255, 234, 0);
   --c-shadow: #453b60;
-  --c-dark: #26141B;
+  --c-dark: #26141b;
+  --c-black: #000;
   --c-light: #efefef;
 
   // generates a list of spacer variables
@@ -32,7 +33,6 @@
   --font-size-sm: calc(var(--font-size-base) * 0.75);
   --font-size-xs: calc(var(--font-size-base) * 0.5);
 
-
   --z-index-base: 1;
   --z-index-nav: 2;
   --z-index-overlay: 3;
@@ -40,4 +40,15 @@
 
   --app-gutter: 1rem;
 
+  // Vercel Theme
+  --accents-5: #888;
+  --accents-7: #eaeaea;
+  --geist-text-gradient: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, 0.6));
+  --glow-bg: radial-gradient(
+    circle at 677.772px 130.333px,
+    #9e01ff55,
+    #0000000f
+  );
+  --glow-opacity: 0.8;
+  --inset-border: 1px solid hsla(0, 0%, 100%, 0.1);
 }

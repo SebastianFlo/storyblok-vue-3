@@ -32,8 +32,6 @@ export default {
 .rb-textblock {
   // border : 1px solid var(--c-dark);
   min-height: 200px;
-  background-color: var(--theme-color, #2c3e50);
-  color: var(--theme-background, #2c3e50);
   padding: var(--spacer-base);
 
   h3 {

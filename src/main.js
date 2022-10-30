@@ -28,7 +28,7 @@ const router = createRouter({
 app.use(router);
 
 app.use(StoryblokVue, {
-  accessToken: 'TOKEN',
+  accessToken: 'czMKQ6F0SWZkkO98FY2e1wtt',
   bridge: process.env.NODE_ENV !== 'production', // optimizes by excluding the bridge on production
   use: [apiPlugin],
 });
