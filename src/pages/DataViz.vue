@@ -122,6 +122,10 @@ export default {
     padding: 1rem;
     border: 1px solid var(--border-color, var(--c-dark));
     color: var(--theme-color, var(--c-dark));
+
+    h3 {
+      color: var(--theme-color, var(--c-dark));
+    }
   }
 }
 </style>
