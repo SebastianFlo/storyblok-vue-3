@@ -3,8 +3,8 @@
     class="rb-data-viz"
     :class="story.theme ? 'theme--' + story.theme : ''"
   >
+    <p>{{ $route.params.title }}</p>
     <div class="rb-data-viz--title" v-html="renderRichText(story.title)" />
-
     <div
       v-if="story.dataBlocks && story.dataBlocks.length"
       :style="{ '--rd-column-nb': story.gridColumns || 3 }"
@@ -24,8 +24,9 @@
 
 <script>
 import { useStoryblok, useStoryblokBridge } from '@storyblok/vue';
-const storyId = 103366387;
+// const storyId = 103366387;
 import { inject, ref, reactive, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
 import { renderRichText } from '@storyblok/vue';
 import { Chart, registerables } from 'chart.js';
 Chart.register(...registerables);
@@ -40,12 +41,15 @@ export default {
     textBlock: Textblock,
     mediaBlock: Mediablock,
   },
-  setup(props) {
+  setup(props, context) {
     let story = ref({});
+    const route = useRoute();
     // const state = reactive({ story: {} });
 
     onMounted(async () => {
-      const storyResponse = await useStoryblok(storyId, { version: 'draft' });
+      const storyResponse = await useStoryblok(route.path, {
+        version: 'draft',
+      });
       story.value = storyResponse.value.content;
 
       const sbBridge = new window.StoryblokBridge();
@@ -83,7 +87,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: var(--theme-color, #2c3e50);
-  width: 98vw;
+  // width: 98vw;
   padding: 1vw;
 
   &--title {

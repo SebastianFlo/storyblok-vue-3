@@ -4,17 +4,12 @@ import { createRouter, createWebHistory } from 'vue-router';
 
 import App from './App.vue';
 import DataViz from './pages/DataViz.vue';
-import Home from './pages/Home.vue';
 
 const app = createApp(App);
 
 const routes = [
   {
-    path: '/',
-    component: Home,
-  },
-  {
-    path: '/projects/data-viz',
+    path: '/projects/:title',
     component: DataViz,
   },
 ];
