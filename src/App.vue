@@ -1,8 +1,4 @@
 <template>
-  <!-- <header>
-    <router-link to="/">Go to Home</router-link>
-    <router-link to="/projects/data-viz">Go to Data Viz</router-link>
-  </header> -->
   <section>
     <router-view></router-view>
   </section>
@@ -16,6 +12,10 @@ console.log('App.vue');
 #app {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  > section {
+    height: 100%;
+  }
 }
 
 header {

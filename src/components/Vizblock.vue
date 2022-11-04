@@ -50,15 +50,6 @@ export default {
     const title = computed(() => blok.value.title);
     const labels = computed(() => blok.value.labels?.split(',') || []);
 
-    // const labels = [
-    //   'January',
-    //   'February',
-    //   'March',
-    //   'April',
-    //   'May',
-    //   'June',
-    // ];
-
     const chartDataSet = ref([0, 10, 5, 2, 20, 30, 45]);
 
     const chartData = computed(() => ({
@@ -92,15 +83,6 @@ export default {
       ) {
         return;
       }
-
-      // const data = await fetch(newBlock.api, {
-      //   headers: {
-      //     'Accept': 'application/json',
-      //     'Content-Type': 'application/json',
-      //     'Access-Control-Allow-Origin': '*',
-      //   },
-      //   method: 'GET',
-      // });
 
       const data = await fetch(newBlock.customApi || newBlock.api, {
         headers: {

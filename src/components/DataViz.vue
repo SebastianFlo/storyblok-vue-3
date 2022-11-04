@@ -23,9 +23,8 @@
 </template>
 
 <script>
-import { useStoryblok, useStoryblokBridge } from '@storyblok/vue';
-// const storyId = 103366387;
-import { inject, ref, reactive, onMounted } from 'vue';
+import { useStoryblok } from '@storyblok/vue';
+import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import { renderRichText } from '@storyblok/vue';
 import { Chart, registerables } from 'chart.js';
