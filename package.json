@@ -4,20 +4,24 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "vitest"
   },
   "dependencies": {
     "@storyblok/vue": "^6.3.2",
+    "@vue/test-utils": "^2.2.1",
     "lodash": "^4.17.21",
     "vue": "^3.2.41",
     "vue-chart-3": "^3.1.8",
     "vue-router": "^4.0.13"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^3.1.2",
+    "@vitejs/plugin-vue": "^3.2.0",
     "@vue/cli-plugin-router": "~4.5.13",
+    "happy-dom": "^7.6.6",
     "sass": "^1.55.0",
     "vite": "^3.1.8",
-    "vite-plugin-mkcert": "^1.10.1"
+    "vite-plugin-mkcert": "^1.10.1",
+    "vitest": "^0.24.5"
   }
 }

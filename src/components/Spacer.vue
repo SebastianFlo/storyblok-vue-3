@@ -6,19 +6,12 @@
       blok.space && `seftek-spacer--${blok.space}`,
       blok.mobileSpace && `seftek-spacer--${blok.mobileSpace}__mobile`,
     ]"
-  >
-    <SfDivider v-if="blok.show_line" />
-  </section>
+  ></section>
 </template>
 
 <script>
-import { defineComponent } from '@nuxtjs/composition-api';
-import { SfDivider } from '@storefront-ui/vue';
-
-export default defineComponent({
-  components: {
-    SfDivider,
-  },
+export default {
+  components: {},
   props: {
     blok: {
       type: Object,
@@ -26,7 +19,7 @@ export default defineComponent({
     },
   },
   setup() {},
-});
+};
 </script>
 
 <style lang="scss">
